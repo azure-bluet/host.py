@@ -71,7 +71,7 @@ def run_module (module):
             import_module (module)
         except KeyboardInterrupt: pass
         call_internal ('rmr', module)
-        os._exit (0)
+        os.kill (os.getpid (), 9)
 
 @Authorized
 def kill_module (module):
