@@ -80,7 +80,7 @@ def kill_module (module):
 
 @Authorized
 def install_module (module: str, zipfile: Binary):
-    kill_module (module)
+    kill_module (password, module)
     sleep (2)
     if os.path.isdir (module): rmtree (module)
     # Cache this zipfile
@@ -92,7 +92,7 @@ def install_module (module: str, zipfile: Binary):
     zipfile.extractall (module + os.sep)
     zipfile.close ()
     # Installed
-    run_module (module)
+    run_module (password, module)
 
 @Authorized
 def running_modules ():
